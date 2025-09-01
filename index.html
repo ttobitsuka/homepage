@@ -4,16 +4,99 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tobi｜Official Site</title>
-  <meta name="description" content="Tobiのポートフォリオ。ナンパ・就活・筋トレ・旅行術など幅広い分野で成果を出す情報発信者。" />
+  <meta name="description" content="Tobiの自己紹介、活動、SNSリンクをまとめた個人ホームページです。" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Tobi｜Official Site" />
-  <meta property="og:description" content="Tobiのポートフォリオ。ナンパ・就活・筋トレ・旅行術など幅広い分野で成果を出す情報発信者。" />
+  <meta property="og:description" content="Tobiの自己紹介、活動、SNSリンクをまとめた個人ホームページです。" />
   <meta property="og:image" content="/og-image.png" />
   <meta name="theme-color" content="#0ea5e9" />
   <link rel="icon" href="/favicon.ico" />
   <style>
-    /* CSSはそのまま */
+    :root{
+      --bg: #0b0d10;
+      --panel: #12161b;
+      --text: #e6edf3;
+      --muted: #9aa4af;
+      --brand: #0ea5e9; /* Sky-500 */
+      --accent: #38bdf8; /* Sky-400 */
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7fafc; --panel:#ffffff; --text:#0b1220; --muted:#5b6472; --brand:#0284c7; --accent:#38bdf8; }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.18), transparent 60%),
+                  radial-gradient(900px 500px at 10% 110%, rgba(2,132,199,.18), transparent 60%), var(--bg);
+      color:var(--text); line-height:1.6;
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:32px 20px 80px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:28px}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
+    .brand .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg, var(--brand), var(--accent)); box-shadow:var(--shadow)}
+    .brand .name{font-weight:700; letter-spacing:.2px}
+    .controls{display:flex; gap:8px; align-items:center}
+    .btn{appearance:none; border:1px solid rgba(255,255,255,.08); background:var(--panel); color:var(--text);
+         padding:10px 14px; border-radius:12px; cursor:pointer; box-shadow:var(--shadow); font-weight:600}
+    .btn:hover{border-color:rgba(255,255,255,.18)}
+
+    .hero{display:grid; grid-template-columns: 160px 1fr; gap:22px; align-items:center; background:rgba(255,255,255,.03);
+          padding:22px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.06)}
+    .avatar{width:160px; height:160px; border-radius:18px; background: #0e1116; border:1px solid rgba(255,255,255,.08); overflow:hidden; display:grid; place-items:center}
+    .avatar img{width:100%; height:100%; object-fit:cover}
+    .title{margin:0; font-size: clamp(28px, 4vw, 44px); line-height:1.2}
+    .subtitle{margin-top:6px; color:var(--muted)}
+    .badges{margin-top:14px; display:flex; flex-wrap:wrap; gap:8px}
+    .badge{padding:6px 10px; border-radius:999px; font-size:13px; background:rgba(56,189,248,.14); border:1px solid rgba(56,189,248,.35)}
+
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; margin-top:22px}
+    .card{grid-column: span 12; background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .card .hd{padding:16px 18px; border-bottom:1px solid rgba(255,255,255,.06); font-weight:700}
+    .card .bd{padding:16px 18px}
+
+    .links{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px}
+    @media (min-width: 720px){
+      .card.span6{grid-column:span 6}
+      .card.span4{grid-column:span 4}
+      .card.span8{grid-column:span 8}
+      .links{grid-template-columns: repeat(3, minmax(0,1fr))}
+    }
+    .linkItem{display:flex; align-items:center; gap:12px; padding:12px; border:1px solid rgba(255,255,255,.08); border-radius:12px; text-decoration:none; color:var(--text); background:#0e1318}
+    .linkItem:hover{border-color:rgba(56,189,248,.55)}
+    .icon{width:22px; height:22px; display:inline-block}
+    .muted{color:var(--muted)}
+
+    .qrWrap{display:flex; gap:16px; align-items:center}
+    .qr{width:160px; height:160px; background:#fff; border-radius:10px; display:grid; place-items:center; overflow:hidden}
+    .qr img{width:100%; height:100%; object-fit:contain}
+
+    .list{display:grid; gap:8px}
+    .li{display:flex; gap:10px}
+    .li .k{width:110px; color:var(--muted)}
+    .chips{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.1)}
+
+    footer{margin-top:40px; color:var(--muted); display:flex; justify-content:space-between; gap:16px; font-size:14px}
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tobi",
+    "url": "https://example.com/tobi",
+    "sameAs": [
+      "https://x.com/tobi",
+      "https://www.instagram.com/0205_10bi2ka_takeki_?igsh=NjFydTJwb2dxczly",
+      "https://www.youtube.com/@tobi"
+    ],
+    "jobTitle": "Marketer & Creator",
+    "description": "AI×SNS×コンテンツで成果を最短化。就活ノート/タイピング術/旅行ハック（VPN活用）など、実体験ベースの有料noteを制作・販売中。"
+  }
+  </script>
 </head>
 <body>
   <div class="wrap">
@@ -30,18 +113,17 @@
 
     <!-- HERO -->
     <section class="hero" id="top">
-      <div class="avatar" aria-label="アバター">
-        <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=600&auto=format&fit=crop" alt="Profile" />
-      </div>
+     <div class="avatar" aria-label="アバター">
+       <img src="profile.jpg" alt="Profile" />
+    </div>
       <div>
-        <h1 class="title">Tobi <span style="font-size:.6em; font-weight:600; color:var(--accent)">/ Webマーケター & Noteコンテンツ販売者</span></h1>
-        <p class="subtitle">有料noteを複数販売中。ナンパ・就活・筋トレ・旅行術など幅広いジャンルで成果を出す情報発信者。</p>
+        <h1 class="title">Tobi <span style="font-size:.6em; font-weight:600; color:var(--accent)">/ Marketer & Creator</span></h1>
+        <p class="subtitle">AI×SNS×コンテンツで成果を最短化。就活ノート/タイピング術/旅行ハック（VPN活用）など、実体験ベースの有料noteを制作・販売中。</p>
         <div class="badges">
           <span class="badge">#Web制作</span>
-          <span class="badge">#AI活用</span>
-          <span class="badge">#ナンパ攻略</span>
-          <span class="badge">#就活支援</span>
-          <span class="badge">#筋トレ</span>
+          <span class="badge">#SNS運用</span>
+          <span class="badge">#AI自動化</span>
+          <span class="badge">#note販売</span>
         </div>
       </div>
     </section>
@@ -52,14 +134,32 @@
         <div class="hd">リンク集 / Socials</div>
         <div class="bd">
           <div class="links">
-            <a class="linkItem" href="https://x.com/tobi" target="_blank" rel="noopener"><span>X（Twitter）</span></a>
-            <a class="linkItem" href="https://www.instagram.com/0205_10bi2ka_takeki_?igsh=NjFydTJwb2dxczly" target="_blank" rel="noopener"><span>Instagram</span></a>
-            <a class="linkItem" href="https://line.me/ti/p/wEDgzVV7X6" target="_blank" rel="noopener"><span>LINE</span></a>
-            <a class="linkItem" href="https://youtube.com/@tobi" target="_blank" rel="noopener"><span>YouTube</span></a>
-            <a class="linkItem" href="https://github.com/tobi" target="_blank" rel="noopener"><span>GitHub</span></a>
-            <a class="linkItem" href="/resume.pdf" target="_blank" rel="noopener"><span>履歴書 / ポートフォリオ</span></a>
+            <a class="linkItem" href="https://x.com/tobi" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M18.244 2H21.5l-7.5 8.57L22 22h-6.172l-4.82-6.273L5.5 22H2.244l8.018-9.162L2 2h6.328l4.36 5.77L18.244 2zm-1.08 18h1.783L6.92 4h-1.8l12.043 16z"/></svg>
+              <span>X（Twitter）</span>
+            </a>
+            <a class="linkItem" href="https://www.instagram.com/0205_10bi2ka_takeki_?igsh=NjFydTJwb2dxczly" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3a5 5 0 110 10 5 5 0 010-10zm0 2.2A2.8 2.8 0 1014.8 12 2.8 2.8 0 0012 9.2zm5.35-2.55a1.05 1.05 0 11-1.05 1.05 1.05 1.05 0 011.05-1.05z"/></svg>
+              <span>Instagram</span>
+            </a>
+            <a class="linkItem" href="https://line.me/ti/p/wEDgzVV7X6" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M12.02 3C6.49 3 2 6.83 2 11.56c0 2.69 1.52 5.08 3.9 6.65.3.2.49.51.49.86v1.86c0 .72.78 1.18 1.4.82l2.53-1.49c.23-.13.5-.17.76-.1.65.16 1.33.25 2.04.25 5.53 0 10.02-3.83 10.02-8.56C23.14 6.83 18.55 3 12.02 3zm-3.7 8.87H6.7V8.82h1.62v3.05zm4.16 0h-1.62V8.82h1.62v3.05zm4.17 0h-1.62V8.82h1.62v3.05z"/></svg>
+              <span>LINE</span>
+            </a>
+            <a class="linkItem" href="https://youtube.com/@tobi" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 00.5 6.2 31.7 31.7 0 000 12a31.7 31.7 0 00.5 5.8 3 3 0 002.1 2.1c1.8.6 9.4.6 9.4.6s7.6 0 9.4-.6a3 3 0 002.1-2.1A31.7 31.7 0 0024 12a31.7 31.7 0 00-.5-5.8zM9.7 15.5v-7L16 12l-6.3 3.5z"/></svg>
+              <span>YouTube</span>
+            </a>
+            <a class="linkItem" href="https://github.com/tobi" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.68c-2.78.6-3.37-1.34-3.37-1.34a2.65 2.65 0 00-1.11-1.46c-.91-.62.07-.61.07-.61a2.1 2.1 0 011.53 1.03 2.13 2.13 0 002.91.83 2.13 2.13 0 01.63-1.34c-2.22-.25-4.56-1.11-4.56-4.93a2.38 2.38 0 01-.68 1.85l-.01 2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a class="linkItem" href="/resume.pdf" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M6 2h9l5 5v13a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2zm8 1.5V8h4.5"/><path d="M8 12h8M8 16h8M8 8h3"/></svg>
+              <span>履歴書 / ポートフォリオ</span>
+            </a>
           </div>
-          <p class="muted" style="margin-top:10px">※ リンク先は実際のアカウントに差し替えてください</p>
+          <p class="muted" style="margin-top:10px">※ リンク先・IDは実際のアカウントに差し替えてください</p>
         </div>
       </div>
 
@@ -82,7 +182,117 @@
       </div>
     </section>
 
-    <!-- 以下は変更なし -->
+    <!-- PROFILE -->
+    <section class="grid">
+      <div class="card span6">
+        <div class="hd">プロフィール</div>
+        <div class="bd">
+          <div class="list">
+            <div class="li"><div class="k">肩書き</div><div>マーケター / クリエイター / ライター</div></div>
+            <div class="li"><div class="k">拠点</div><div>浜松拠点（全国オンライン対応）</div></div>
+            <div class="li"><div class="k">自己紹介</div><div>AIとマーケを組み合わせて「伝わる設計×速い実装」。LP制作・SNS設計・自動化、そして就活/タイピング/旅行ハックなどの実用ノートを発信しています。阪神ファン。</div></div>
+            <div class="li"><div class="k">スキル</div><div class="chips"><span class="chip">HTML/CSS/JS</span><span class="chip">ChatGPT</span><span class="chip">SEO</span><span class="chip">X運用</span><span class="chip">Canva</span><span class="chip">Notion</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card span6">
+        <div class="hd">実績 / 提供サービス</div>
+        <div class="bd">
+          <ul>
+            <li>LP制作（要件定義→設計→公開まで伴走）</li>
+            <li>SNS設計・運用（X/Instagram/YouTube）</li>
+            <li>AI自動化（問い合わせ対応、スプレッドシート/フォーム連携）</li>
+            <li>有料noteの企画・執筆・販売設計（就活/タイピング/旅行ハック など）</li>
+          </ul>
+          <p class="muted">※ 実績のリンクや数値（CVR/フォロワー増など）を追記すると説得力UP</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENTS / NOTES -->
+    <section class="grid">
+      <div class="card span8">
+        <div class="hd">最新のお知らせ / ノート</div>
+        <div class="bd">
+          <article>
+            <h3 style="margin:0 0 6px">公開：個人サイト「Tobi Official Site」を公開しました</h3>
+            <p class="muted" style="margin:0 0 10px">2025-09-01</p>
+            <p>ポートフォリオ兼ランディング用の1枚サイトを公開。今後は有料noteや制作実績、SNS発信の導線をまとめていきます。</p>
+          </article>
+          <hr style="border:0; border-top:1px solid rgba(255,255,255,.06); margin:16px 0">
+          <article>
+            <h3 style="margin:0 0 6px">制作予告：就活ノート / タイピング術 / 旅行ハック（VPN活用）</h3>
+            <p class="muted" style="margin:0 0 10px">2025-08-25</p>
+            <p>「偏差値39からの逆転内定術」「1日で伸びるタイピング設計」「海外航空券を安く買うためのVPN活用」など、順次リリース予定。</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="card span4" id="contact">
+        <div class="hd">お問い合わせ</div>
+        <div class="bd">
+          <form onsubmit="send(event)">
+            <label>お名前<br><input name="name" required style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1318;color:var(--text)"></label>
+            <br><br>
+            <label>メール<br><input type="email" name="email" required style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1318;color:var(--text)"></label>
+            <br><br>
+            <label>内容<br><textarea name="message" rows="4" required style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0e1318;color:var(--text)"></textarea></label>
+            <br><br>
+            <button class="btn" type="submit" style="width:100%">送信（ダミー）</button>
+            <p class="muted" style="margin-top:8px">※ 静的サイトのためデモ動作です。実運用は<a href="https://forms.gle/" target="_blank" rel="noopener">Googleフォーム</a>や<a href="https://formspree.io/" target="_blank" rel="noopener">Formspree</a>などを接続してください。</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Tobi</div>
+      <div>Built with ❤︎ / HTML + CSS + 少しのJS</div>
+    </footer>
   </div>
+
+  <script>
+    // 年
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // テーマ切替（ライト/ダーク）
+    const themeBtn = document.getElementById('themeBtn');
+    const key = 'site-theme';
+    themeBtn.addEventListener('click', ()=>{
+      const flag = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = flag;
+      if(flag==='light'){
+        document.body.style.background = '#f7fafc';
+      }else{
+        document.body.style.background = '';
+      }
+      try{ localStorage.setItem(key, flag); }catch(e){}
+    });
+    try{
+      const saved = localStorage.getItem(key);
+      if(saved){
+        document.documentElement.dataset.theme = saved;
+        if(saved==='light'){ document.body.style.background = '#f7fafc'; }
+      }
+    }catch(e){}
+
+    // LINE IDコピー
+    function copyLine(){
+      const text = document.getElementById('lineId').innerText;
+      navigator.clipboard.writeText(text).then(()=>{
+        alert('LINE IDをコピーしました');
+      });
+    }
+
+    // 送信ダミー
+    function send(e){
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const data = Object.fromEntries(fd.entries());
+      alert('送信デモ\n' + JSON.stringify(data, null, 2));
+      e.target.reset();
+    }
+  </script>
 </body>
 </html>
